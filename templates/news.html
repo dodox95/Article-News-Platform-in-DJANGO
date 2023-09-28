@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-3 content-container">
+        <h1 class="news-title">{{ news.title }}</h1>
+        {% if news.thumbnail %}
+        <img src="{{ news.thumbnail.url }}" class="card-img-top card-image zoom full-width-image" alt="{{ news.title }}">
+        {% endif %}
+        <p class="news-content">{{ news.content|safe }}</p>
+        <p>Read <b>{{ news.views }} times.</b></p>
+
+        <!-- Displaying hashtags -->
+        <div class="news-hashtags">
+            {% for hashtag in news.hashtags.all %}
+                <span class="hashtag">#{{ hashtag.name }}</span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

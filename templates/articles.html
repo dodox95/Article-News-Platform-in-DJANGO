@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load short_description %}
+{% load custom_range from range_tags %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="card-deck">
+            {% for article in main_articles %}
+                {% if forloop.counter == 1 %}
+                <div class="main-card">
+                    <div class="card mb-4 shadow">
+                        <a href="{{ article.get_absolute_url }}" class="stretched-link">
+                            <img src="{{ article.thumbnail.url }}" class="card-img-top card-image zoom" alt="{{ article.title }}">
+                            <h5 class="card-title on-image">{{ article.title }}</h5>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        
+            <div class="side-cards">
+                {% for article in main_articles %}
+                    {% if forloop.counter > 1 %}
+                    <div class="card mb-4 shadow">
+                        <a href="{{ article.get_absolute_url }}" class="stretched-link">
+                            <img src="{{ article.thumbnail.url }}" class="card-img-top card-image zoom" alt="{{ article.title }}">
+                            <h5 class="card-title on-image">{{ article.title }}</h5>
+                        </a>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+        <div class="row pt-4">
+            <div class="col-lg-8 pb-4 border-right">
+                <div class="title-bar">
+                    <h5 class="titlehome">
+                        <a href="/press-releases/">Full projects</a>
+                    </h5>
+                </div>
+                <div class="row">
+                    {% for press_release in press_releases %}
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card mb-4 shadow">
+                            <a href="{{ press_release.get_absolute_url }}" class="stretched-link">
+                                {% if press_release.thumbnail %}
+                                
+                                <img src="{{ press_release.thumbnail.url }}" style="width: 100%; height: 100px; object-fit: cover;" alt="{{ press_release.title }}">
+                                {% else %}
+                                <img src="https://via.placeholder.com/150" class="card-img-top card-image zoom" alt="Placeholder image">
+                                {% endif %}
+                                <div class="card-body card-content">
+                                    <h5 class="card-title">{{ press_release.title }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    {% endfor %}
+                    <div class="mt-4 text-center">
+                        <a href="{% url 'all_projects' %}" class="btn btn-primary">SEE MORE</a>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title titlehome">
+                            Follow us
+                        </h5>
+                        <div class="subpr">
+                            <a class="btn btn-block social-btn twitter-btn" href="https://twitter.com/travilabs">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                            <a class="btn btn-block social-btn telegram-btn" href="https://t.me/distGo">
+                                <i class="fab fa-telegram-plane"></i> Telegram
+                            </a>
+                            <a class="btn btn-block social-btn discord-btn" href="https://discord.gg/n5fTEk6ffV">
+                                <i class="fab fa-discord"></i> Discord
+                            </a>
+                            <a class="btn btn-block social-btn tiktok-btn" href="https://www.tiktok.com/@travilabs2">
+                                <i class="fab fa-tiktok"></i> TikTok
+                            </a>
+                            <a class="btn btn-block social-btn instagram-btn" href="https://www.instagram.com/travilabs_">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a class="btn btn-block social-btn youtube-btn" href="https://www.youtube.com/@travilabs/playlists">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                        
+                            <!-- Here's the new tile for Travilabs.com with the 'stratic' icon -->
+                            <a class="btn btn-block social-btn travilabs-btn" href="https://www.info.travilabs.com">
+                                <img src="{% static 'public/travilabs.png' %}" alt="Stratic Icon" class="stratic-icon"> Travilabs.com
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+            
+
+                <hr>
+            </div>
+
+            <div class="row"> <!-- Start of the row containing both News and Recent Articles -->
+
+                <!-- Start of the News section -->
+                <div class="col-lg-8">
+                    <div class="title-bar">
+                        <h5 class="titlehome">News</h5>
+                    </div>
+                    {% for item in news %}
+                    <div class="card mb-4 shadow">
+                        <a href="{{ item.get_absolute_url }}">
+                            <div class="row no-gutters">
+                                
+                                <div class="col-lg-4">
+                                    
+                                    {% if item.thumbnail %}
+                                    <img src="{{ item.thumbnail.url }}" class="card-img" alt="{{ item.title }}">
+                                    {% else %}
+                                    <img src="https://via.placeholder.com/100" class="card-img" alt="{{ item.title }}">
+                                    {% endif %}
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-body py-2 px-3">
+                                        <h6 class="card-title mb-0 news-title">{{ item.title }}</h6> <!-- Added the class 'news-title' -->                                    </div>
+                                    </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    <div class="mt-4 text-center">
+                        <a href="{% url 'all_news' %}" class="btn btn-primary">SEE MORE</a>
+                    </div>
+                </div>
+                
+
+                
+                <!-- End of the News section -->
+                <div class="col-lg-4">
+                    <div class="title-bar">
+                        <h5 class="titlehome">Recent articles</h5>
+                    </div>
+                    {% for editorial in editorials %}
+                    <div class="card mb-4 shadow">
+                        <a href="{{ editorial.get_absolute_url }}">
+                            <div class="row no-gutters">
+                                <div class="col-lg-4">
+                                    {% if editorial.thumbnail %}
+                                    <img src="{{ editorial.thumbnail.url }}" class="card-img" alt="{{ editorial.title }}">
+                                    {% else %}
+                                    <img src="https://via.placeholder.com/100" class="card-img" alt="{{ editorial.title }}">
+                                    {% endif %}
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-body py-2 px-3">
+                                        <h6 class="card-title mb-0">{{ editorial.title }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    {% endfor %}
+                    <div class="mt-4 text-center">
+                        <a href="{% url 'all_editorials' %}" class="btn btn-primary">SEE MORE</a>
+                    </div>
+                    
+                </div>
+                <!-- End of the Recent articles section -->
+            
+            </div> <!-- End of the row containing both News and Recent Articles -->
+            
+
+<div class="row">
+    <div class="col-lg-8 border-right">
+        <div class="title-bar">
+            <h5 class="titlehome">
+                <a href="https://www.youtube.com/@travilabs/playlists">Movies</a>
+            </h5>
+        </div>
+        <div class="row pt-4" style="margin-bottom: 50px;"> <!-- Added style here -->
+            {% for analysis in crypto_analyses %}
+            <div class="col-lg-4 col-md-6 col-sm-12"> <!-- Modified col-lg-3 to col-lg-4 here -->
+                <div class="card mb-4 shadow">
+                    <a href="{{ analysis.link }}" class="stretched-link">
+                        {% if analysis.image %}
+                        <img src="{{ analysis.image.url }}" class="card-img-top card-image zoom" alt="{{ analysis.title }}">
+                        {% else %}
+                        <img src="https://via.placeholder.com/150" class="card-img-top card-image zoom" alt="Placeholder image">
+                        {% endif %}
+
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="mt-4 text-center">
+            <a href="https://www.youtube.com/@travilabs/playlists" class="btn btn-primary">WATCH MORE VIDEOS</a>
+        </div>
+    </div>
+    
+
+
+    
+    <div class="col-lg-4">
+        <div class="title-bar">
+            <h5 class="titlehome">Newest Courses</h5>
+        </div>
+        
+        {% for course in newest_courses %}
+            <!-- Newest Course structure adjusted similar to articles -->
+            <div class="card mb-4 shadow">
+                <a href="{{ course.get_absolute_url }}">  <!-- Use get_absolute_url -->
+                    <div class="row no-gutters">
+                        <div class="col-lg-4">
+                            {% if course.image %}
+                                <img src="{{ course.image.url }}" class="card-img" alt="{{ course.title }}">
+                            {% else %}
+                                <img src="{% static 'default_image_path.jpg' %}" class="card-img" alt="Default Image">
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card-body py-2 px-3">
+                                <h6 class="card-title mb-0">{{ course.title }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        <div class="mt-4 text-center">
+            <a href="{% url 'all_courses' %}" class="btn btn-primary">SEE MORE COURSES</a>
+        </div>
+        
+    </div>
+
+    <div class="title-bar">
+        <h5 class="titlehome"></h5>
+    </div>
+
+</div> <!-- This is the missing closing tag -->
+{% endblock %}

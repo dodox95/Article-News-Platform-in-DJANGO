@@ -1,0 +1,12 @@
+.admin-hashtags input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.admin-hashtags label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.admin-hashtags ul {
+    columns: 10;
+}

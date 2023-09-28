@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-5"> <!-- Added container for centering and spacing -->
+
+    <div class="text-center mb-5">
+        <h2>All Articles</h2>
+    </div>
+
+    {% for editorial in editorials %}
+    <div class="card mb-4 shadow">
+        <a href="{{ editorial.get_absolute_url }}" class="text-decoration-none text-dark"> <!-- Added classes for improved hyperlink aesthetics -->
+            <div class="row no-gutters">
+                <div class="col-lg-4">
+                    {% if editorial.thumbnail %}
+                    <img src="{{ editorial.thumbnail.url }}" class="card-img" alt="{{ editorial.title }}">
+                    {% else %}
+                    <img src="https://via.placeholder.com/100" class="card-img" alt="{{ editorial.title }}">
+                    {% endif %}
+                </div>
+                <div class="col-lg-8">
+                    <div class="card-body py-3 px-4"> <!-- Slightly increased padding -->
+                        <h6 class="card-title mb-0 dynamic-title">{{ editorial.title }}</h6>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+    <!-- Enhanced Pagination Using Bootstrap -->
+    <div class="d-flex justify-content-center">
+        <ul class="pagination">
+            {% if editorials.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ editorials.previous_page_number }}">previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">&laquo; first</span></li>
+                <li class="page-item disabled"><span class="page-link">previous</span></li>
+            {% endif %}
+            
+            <li class="page-item disabled"><span class="page-link">Page {{ editorials.number }} of {{ editorials.paginator.num_pages }}</span></li>
+
+            {% if editorials.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ editorials.next_page_number }}">next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ editorials.paginator.num_pages }}">last &raquo;</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">next</span></li>
+                <li class="page-item disabled"><span class="page-link">last &raquo;</span></li>
+            {% endif %}
+        </ul>
+    </div>
+
+</div> <!-- Closing container -->
+
+{% endblock %}

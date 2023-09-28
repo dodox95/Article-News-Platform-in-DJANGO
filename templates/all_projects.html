@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-lg-12 pb-4">
+            <div class="title-bar">
+                <h5 class="titlehome">All Projects</h5>
+            </div>
+            <div class="row">
+                {% for press_release in press_releases %}
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card mb-4 shadow">
+                        <a href="{{ press_release.get_absolute_url }}" class="stretched-link">
+                            {% if press_release.thumbnail %}
+                            <img src="{{ press_release.thumbnail.url }}" style="width: 100%; height: 100px; object-fit: cover;" alt="{{ press_release.title }}">
+                            {% else %}
+                            <img src="https://via.placeholder.com/150" class="card-img-top card-image zoom" alt="Placeholder image">
+                            {% endif %}
+                            <div class="card-body card-content">
+                                <h5 class="card-title">{{ press_release.title }}</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="mt-4">
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if press_releases.has_previous %}
+                            <a href="?page=1">&laquo; first</a>
+                            <a href="?page={{ press_releases.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ press_releases.number }} of {{ press_releases.paginator.num_pages }}.
+                        </span>
+
+                        {% if press_releases.has_next %}
+                            <a href="?page={{ press_releases.next_page_number }}">next</a>
+                            <a href="?page={{ press_releases.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

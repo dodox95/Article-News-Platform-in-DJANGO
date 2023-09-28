@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="course-detail content-container">
+        <h1>{{ course.title }}</h1>
+        {% if course.image %}
+        <div class="course-image">
+            <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}" />
+        </div>
+        {% endif %}
+        <div class="course-description">
+            {{ course.description | safe }} <!-- Korzystamy z filtra 'safe' ponieważ używamy RichTextField -->
+        </div>
+    </div>
+{% endblock %}

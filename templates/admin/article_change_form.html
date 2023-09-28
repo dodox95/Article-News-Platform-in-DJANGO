@@ -1,0 +1,23 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls %}
+
+{% block field_sets %}
+    {{ block.super }}
+    <script>
+        // This script updates the "selected_hashtags" textarea when a hashtag checkbox is clicked
+        document.addEventListener("DOMContentLoaded", function() {
+            const hashtagCheckboxes = document.querySelectorAll('.hashtag-checkbox input[type="checkbox"]');
+            const selectedHashtagsTextarea = document.querySelector('textarea[name="selected_hashtags"]');
+            
+            hashtagCheckboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    let selectedHashtags = [];
+                    document.querySelectorAll('.hashtag-checkbox input[type="checkbox"]:checked').forEach(function(selectedCheckbox) {
+                        selectedHashtags.push(selectedCheckbox.nextSibling.textContent.trim());
+                    });
+                    selectedHashtagsTextarea.value = selectedHashtags.join(', ');
+                });
+            });
+        });
+    </script>
+{% endblock %}

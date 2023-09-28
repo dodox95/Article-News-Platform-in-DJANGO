@@ -1,0 +1,188 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #161E21 !important;">
+    <div class="container-fluid">
+        <a class="navbar-brand text-warning" href="{% url 'index' %}">
+            <img src="{% static 'public/travilabs.png' %}" alt="Travilabs" style="height: 30px;">
+        </a>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Web Development
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'web_development_full_courses' %}">Full projects</a></li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">Backend</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'web_development_backend_django' %}">Django</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_backend_flask' %}">Flask</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_backend_express_js' %}">Node.js / Express.js</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_backend_php' %}">PHP / Laravel</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">Frontend</a>
+                            
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_html_css_js' %}">HTML / CSS / JavaScript</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_react' %}">React.js</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_vue' %}">Vue.js</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_next_js' %}">Next.js</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_bootstrap' %}">Bootstrap</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_tailwind' %}">Tailwind</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_three_js' %}">Three.js</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_frontend_vite' %}">Vite</a></li>
+                            </ul>
+                        </li>                        
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">Wordpress</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'web_development_wordpress_full_projects' %}">Full Projects</a></li>
+                                <li><a class="dropdown-item" href="{% url 'web_development_wordpress_plugins' %}">Plugins</a></li>
+                            </ul>
+                        </li>              
+                        </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mobile Development
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'mobile_development_full_projects' %}">Full Projects</a></li>
+                        <li><a class="dropdown-item" href="{% url 'mobile_development_java' %}">Java</a></li>
+                        <li><a class="dropdown-item" href="{% url 'mobile_development_kotlin' %}">Kotlin</a></li>
+                        <li><a class="dropdown-item" href="{% url 'mobile_development_flutter' %}">Flutter</a></li>
+                        <li><a class="dropdown-item" href="{% url 'mobile_development_react_native' %}">React Native</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Game Development
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'game_development_full_projects' %}">Full Projects</a></li>
+                        <li><a class="dropdown-item" href="{% url 'game_development_unity' %}">Unity</a></li>
+                        <li><a class="dropdown-item" href="{% url 'game_development_unreal_engine' %}">Unreal Engine</a></li>
+                        <li><a class="dropdown-item" href="{% url 'game_development_rpg_maker' %}">RPG Maker</a></li>
+                        <li><a class="dropdown-item" href="{% url 'game_development_godot' %}">Godot</a></li>
+                        <li><a class="dropdown-item" href="{% url 'game_development_phaser' %}">Phaser</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Blockchain
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'blockchain_full_projects' %}">Full Projects</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blockchain_solidity' %}">Solidity</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blockchain_dao' %}">DAO</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blockchain_nft' %}">NFT</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blockchain_dapps' %}">DeFi / DApps</a></li>
+                        <li><a class="dropdown-item" href="{% url 'blockchain_web3_frameworks' %}">WEB3 Frameworks</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Automatization
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'automatization_full_projects' %}">Full Projects</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_bots' %}">Bots</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_scripting_and_automation' %}">Scripting & Task Automation</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_workflow_automation' %}">Workflow Automation</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_rpa' %}">Robotic Process Automation (RPA)</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_email_automation' %}">Email Automation</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_data_automation' %}">Data Automation</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_automated_reporting' %}">Automated Reporting</a></li>
+                        <li><a class="dropdown-item" href="{% url 'automatization_home_automation' %}">Home Automation</a></li>
+
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Databases
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'databases_full_projects' %}">Full Projects</a></li>
+                        <li><a class="dropdown-item" href="{% url 'databases_mysql' %}">MySQL</a></li>
+                        <li><a class="dropdown-item" href="{% url 'databases_postgresql' %}">PostgreSQL</a></li>
+                        <li><a class="dropdown-item" href="{% url 'databases_sqlite' %}">SQLite</a></li>
+                        <li><a class="dropdown-item" href="{% url 'databases_realm' %}">Realm</a></li>
+                        <li><a class="dropdown-item" href="{% url 'databases_firebase' %}">Firebase</a></li>
+                        <li><a class="dropdown-item" href="{% url 'databases_ipfs' %}">IPFS</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Data Science
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'datascience_full_projects' %}">Full Projects</a></li>
+                        <li><a class="dropdown-item" href="{% url 'datascience_Data_Manipulation_Analysis' %}">Data Manipulation and Analysis</a></li>
+                        <li><a class="dropdown-item" href="{% url 'datascience_machine_learning' %}">Machine Learning / Deep Learning</a></li>
+                        <li><a class="dropdown-item" href="{% url 'datascience_data_visualization' %}">Data Visualization</a></li>
+                        <li><a class="dropdown-item" href="{% url 'datascience_nlp' %}">Natural Language Processing</a></li>
+                        <li><a class="dropdown-item" href="{% url 'datascience_big_data_frameworks' %}">Big Data Frameworks</a></li>
+                        <li><a class="dropdown-item" href="{% url 'datascience_workflow_experiment_management' %}">Workflow & Experiment Management</a></li>
+
+                        <!-- <li><a class="dropdown-item" href="#">Others</a></li> -->
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="{% url 'ai' %}">
+                        AI
+                    </a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Systems
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'systems_ubuntu' %}">Ubuntu</a></li>
+                        <li><a class="dropdown-item" href="{% url 'systems_ubuntu_server' %}">Ubuntu Server</a></li>
+                        <li><a class="dropdown-item" href="{% url 'systems_windows' %}">Windows</a></li>
+                        <li><a class="dropdown-item" href="{% url 'systems_linux_mint' %}">Linux Mint</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Courses
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                        <li><a class="dropdown-item" href="{% url 'courses_python' %}">Python</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_html_css_js' %}">HTML/CSS/JS</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_react_js' %}">React.js</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_vue_js' %}">Vue.js</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_vite' %}">Vite</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_next_js' %}">Next.js</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_flutter' %}">Flutter</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_kotlin' %}">Kotlin</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_java' %}">Java</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_ai' %}">AI</a></li>
+
+                        <li><a class="dropdown-item" href="{% url 'courses_docker' %}">Docker</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_databases' %}">Databases</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_video_graphic' %}">Video / Graphic</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses_blockchain' %}">Blockchain</a></li>
+
+                        <li><a class="dropdown-item" href="{% url 'courses_wordpress' %}">Wordpress</a></li>
+
+                        <li><a class="dropdown-item" href="{% url 'courses_cplusplus' %}">C++</a></li>
+
+                        
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
